@@ -1,1 +1,2 @@
-﻿Console.WriteLine("Hellope Fenet");
+﻿using Fenet.Core;
+var browser = new BrowserEngine();
