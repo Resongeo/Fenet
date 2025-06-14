@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenet.Test", "Fenet.Test\Fe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenet.Core", "Fenet.Core\Fenet.Core.csproj", "{766E1409-2B40-4032-9764-2D882C539F24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenet.Html", "Fenet.Html\Fenet.Html.csproj", "{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{766E1409-2B40-4032-9764-2D882C539F24}.Release|x64.Build.0 = Release|Any CPU
 		{766E1409-2B40-4032-9764-2D882C539F24}.Release|x86.ActiveCfg = Release|Any CPU
 		{766E1409-2B40-4032-9764-2D882C539F24}.Release|x86.Build.0 = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|x64.Build.0 = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Debug|x86.Build.0 = Debug|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|x64.Build.0 = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{301F2F3F-1F43-426D-8640-16ECCAA3E0AD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

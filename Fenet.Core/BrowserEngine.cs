@@ -1,9 +1,8 @@
-﻿namespace Fenet.Core;
+﻿using Fenet.Html;
+
+namespace Fenet.Core;
 
 public class BrowserEngine
 {
-    public BrowserEngine()
-    {
-        Console.WriteLine("Hellope Fenet");
-    }
+    private readonly HtmlParser _htmlHtmlParser = new();
 }
