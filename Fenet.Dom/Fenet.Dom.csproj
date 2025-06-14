@@ -6,9 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Fenet.Dom\Fenet.Dom.csproj" />
-      <ProjectReference Include="..\Fenet.Html\Fenet.Html.csproj" />
-    </ItemGroup>
-
 </Project>
