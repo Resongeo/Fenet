@@ -28,6 +28,13 @@ public class HtmlParser
         while (true)
         {
             ConsumeWhitespace();
+
+            while (StartsWith("<!"))
+            {
+                ConsumeComment();
+                ConsumeWhitespace();
+            }
+            
             if (Eof() || StartsWith("</"))
             {
                 break;
@@ -113,6 +120,12 @@ public class HtmlParser
     private bool StartsWith(string value)
     {
         return _source != null && _source[_pos..].StartsWith(value);
+    }
+
+    private void ConsumeComment()
+    {
+        ConsumeWhile(ch => ch != '>');
+        ConsumeChar();
     }
 
     private void ConsumeWhitespace()
