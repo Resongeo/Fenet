@@ -98,12 +98,20 @@ public class HtmlParser
         return attributes;
     }
 
-    private (string, string) ParseAttribute()
+    private (string, string?) ParseAttribute()
     {
         var name = ParseName();
-        Expect("=");
+        
+        if (NextChar() != '=')
+        {
+            return (name, null);
+        }
+
+        ConsumeChar();
+        
         var openingQuote = ConsumeChar();
         var value = ConsumeWhile(ch => ch != openingQuote);
+        
         ConsumeChar();
 
         return (name, value);

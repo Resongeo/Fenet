@@ -9,7 +9,7 @@ const string testInput =
      <!--This is a comment,} the parser ignores it-->
          <!-This is an incorrect comment, the parser should ignore it-->
          <h1>Hellope</h1>
-         <p>Lorem ipsum</p>
+         <p disabled>Lorem ipsum</p>
      </div>
  </html>
  """;
