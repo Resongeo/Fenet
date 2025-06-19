@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Fenet.Dom;
+using Attribute = Fenet.Dom.Attribute;
 
 namespace Fenet.Html;
 
@@ -18,7 +19,7 @@ public class HtmlParser
             return nodes[0];
         }
         
-        return Node.CreateElement("html", nodes);
+        return Node.CreateElement("html", [], nodes);
     }
 
     private List<Node> ParseNodes()
@@ -60,7 +61,7 @@ public class HtmlParser
         // Opening tag
         Expect("<");
         var tagName = ParseName();
-        // TODO: parse attributes
+        var attributes = ParseAttributes();
         Expect(">");
 
         var children = ParseNodes();
@@ -70,7 +71,42 @@ public class HtmlParser
         Expect(tagName);
         Expect(">");
         
-        return Node.CreateElement(tagName, children);
+        return Node.CreateElement(tagName, attributes, children);
+    }
+
+    private List<Attribute> ParseAttributes()
+    {
+        var attributes = new List<Attribute>();
+
+        while (true)
+        {
+            ConsumeWhitespace();
+            
+            if (NextChar() == '>')
+            {
+                break;
+            }
+
+            var (name, value) = ParseAttribute();
+            attributes.Add(new Attribute
+            {
+                Name = name,
+                Value = value
+            });
+        }
+        
+        return attributes;
+    }
+
+    private (string, string) ParseAttribute()
+    {
+        var name = ParseName();
+        Expect("=");
+        var openingQuote = ConsumeChar();
+        var value = ConsumeWhile(ch => ch != openingQuote);
+        ConsumeChar();
+
+        return (name, value);
     }
 
     private Node ParseText()
@@ -163,6 +199,14 @@ public class HtmlParser
         {
             Console.WriteLine($"{indent}Element Node:");
             Console.WriteLine($"{indent}- tag name: {node.TagName}");
+            if (node.Attributes.Count > 0)
+            {
+                Console.WriteLine($"{indent}- attributes:");
+                foreach (var attrib in node.Attributes)
+                {
+                    Console.WriteLine($"{indent}  - {attrib.Name}: {attrib.Value ?? ""}");
+                }
+            }
         }
 
         foreach (var child in node.Children)
