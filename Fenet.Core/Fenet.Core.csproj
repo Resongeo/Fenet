@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Fenet.Dom\Fenet.Dom.csproj" />
       <ProjectReference Include="..\Fenet.Html\Fenet.Html.csproj" />
+      <ProjectReference Include="..\Fenet.Net\Fenet.Net.csproj" />
     </ItemGroup>
 
 </Project>

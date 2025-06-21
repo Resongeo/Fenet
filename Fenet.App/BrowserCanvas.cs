@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -26,10 +27,9 @@ public class BrowserCanvas : Control
         _noSkiaFallback = new GlyphRun(Typeface.Default.GlyphTypeface, 12, noSkiaText.AsMemory(), glyphs);
     }
     
-    public void Navigate(string url)
+    public async Task Navigate(string url)
     {
-        // TODO: download source from url
-        _browserEngine.TestParse(url);
+        await _browserEngine.LoadUrlAsync(url);
     }
 
     public override void Render(DrawingContext context)

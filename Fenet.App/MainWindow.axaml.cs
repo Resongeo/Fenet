@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -51,13 +52,21 @@ public partial class MainWindow : Window
         };
     }
 
-    private void GoButton_Click(object? sender, RoutedEventArgs e)
+    private async void GoButton_Click(object? sender, RoutedEventArgs e)
     {
         if (_addressBar.Text == null)
         {
             return;
         }
-            
-        _browserCanvas.Navigate(_addressBar.Text);
+
+        try
+        {
+            await _browserCanvas.Navigate(_addressBar.Text);
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            throw;
+        }
     }
 }
