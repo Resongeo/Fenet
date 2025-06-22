@@ -63,7 +63,7 @@ public class HtmlParser
         var tagName = ParseName();
         var attributes = ParseAttributes();
 
-        if (tagName is "meta" or "link" or "base")
+        if (tagName is "meta" or "link" or "base" or "br")
         {
             Expect(">");
             return Node.CreateElement(tagName, attributes, []);
