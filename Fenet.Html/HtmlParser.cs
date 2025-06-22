@@ -62,6 +62,14 @@ public class HtmlParser
         Expect("<");
         var tagName = ParseName();
         var attributes = ParseAttributes();
+
+        // Self closing element
+        if (NextChar() == '/')
+        {
+            Expect("/>");
+            return Node.CreateElement(tagName, attributes, []);
+        }
+        
         Expect(">");
 
         var children = ParseNodes();
@@ -82,7 +90,7 @@ public class HtmlParser
         {
             ConsumeWhitespace();
             
-            if (NextChar() == '>')
+            if (NextChar() == '>' || NextChar() == '/')
             {
                 break;
             }
