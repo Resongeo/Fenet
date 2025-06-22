@@ -63,6 +63,12 @@ public class HtmlParser
         var tagName = ParseName();
         var attributes = ParseAttributes();
 
+        if (tagName is "meta" or "link" or "base")
+        {
+            Expect(">");
+            return Node.CreateElement(tagName, attributes, []);
+        }
+        
         // Self closing element
         if (NextChar() == '/')
         {

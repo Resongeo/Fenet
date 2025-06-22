@@ -4,6 +4,10 @@ const string testInput =
     """
     <!DOCTYPE html>
     <html>
+        <head>
+            <link rel="stylesheet" href="style.css">
+            <title>My cool website</title>
+        </head>
         <div class='flex flex-row' id="container">
         <!--This is a comment,} the parser ignores it-->
             <!-This is an incorrect comment, the parser should ignore it-->
